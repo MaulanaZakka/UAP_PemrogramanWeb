@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <script>
+      function hitungTotal() {
+        var tabel = document.getElementById("tabel-barang");
+        var kode = document.getElementById("kode-barang").value;
+        var jumlah = document.getElementById("jumlah-barang").value;
+        var total = 0;
+        for (var i = 1; i < tabel.rows.length; i++) {
+          if (kode == tabel.rows[i].cells[0].innerHTML) {
+            total += tabel.rows[i].cells[2].innerHTML * jumlah;
+          }
+        }
+        // Tampilkan alert total pembayaran dengan tombol OK
+        window.alert("Total pembayaran: Rp" + total, true);
+      }
+
+      function masukkanUang() {
+        // Tampilkan alert baru yang meminta user untuk memasukkan uang
+        var uang = window.prompt("Masukkan uang: ");
+        // Tampilkan alert yang menampilkan uang yang dimasukkan
+        window.alert("Uang yang dimasukkan: Rp" + uang);
+      }
+    </script>
+  </head>
+  <body>
+    <table id="tabel-barang">
+      <tr>
+        <th>Kode Barang</th>
+        <th>Nama Barang</th>
+        <th>Harga</th>
+      </tr>
+      <tr>
+        <td>A001</td>
+        <td>Buku</td>
+        <td>10000</td>
+      </tr>
+      <tr>
+        <td>A002</td>
+        <td>Pulpen</td>
+        <td>2000</td>
+      </tr>
+      <tr>
+        <td>A003</td>
+        <td>Penggaris</td>
+        <td>3000</td>
+      </tr>
+      <tr>
+        <td>A004</td>
+        <td>Pensil</td>
+        <td>1000</td>
+      </tr>
+    </table>
+    <p>Masukkan kode barang:</p>
+    <input id="kode-barang" type="text" />
+    <p>Masukkan jumlah barang:</p>
+    <input id="jumlah-barang" type="number" />
+    <button onclick="hitungTotal()">Submit</button>
+  </body>
+</html>
